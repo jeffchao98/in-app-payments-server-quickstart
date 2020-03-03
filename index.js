@@ -46,6 +46,7 @@ app.post('/chargeForCookie', async (request, response) => {
       // "order_id": order.order.id,
       "autocomplete": true,
     };
+    console.log('createPaymentRequest', JSON.stringify(createPaymentRequest))
     const createPaymentResponse = await paymentsApi.createPayment(createPaymentRequest);
     console.log(createPaymentResponse.payment);
 
