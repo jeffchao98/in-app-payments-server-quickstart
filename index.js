@@ -37,13 +37,14 @@ app.post('/chargeForCookie', async (request, response) => {
     const locationId = locations.locations[0].id;
     const order = await ordersApi.createOrder(locationId, createOrderRequest);
 
+    console.log('order', JSON.stringify(order))
     const createPaymentRequest = {
       "idempotency_key": crypto.randomBytes(12).toString('hex'),
       "source_id": requestBody.nonce,
       "amount_money": {
         ...order.order.total_money,
       },
-      // "order_id": order.order.id,
+      "order_id": order.order.id,
       "autocomplete": true,
     };
     console.log('createPaymentRequest', JSON.stringify(createPaymentRequest))
