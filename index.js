@@ -43,7 +43,7 @@ app.post('/chargeForCookie', async (request, response) => {
       "amount_money": {
         ...order.order.total_money,
       },
-      "order_id": order.order.id,
+      // "order_id": order.order.id,
       "autocomplete": true,
     };
     const createPaymentResponse = await paymentsApi.createPayment(createPaymentRequest);
@@ -124,7 +124,7 @@ function getOrderRequest() {
           quantity: "1",
           base_price_money: {
             amount: 100,
-            currency: "USD"
+            currency: "JPY"
           }
         }
       ]
